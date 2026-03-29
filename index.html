@@ -1111,56 +1111,7 @@ Auto Rename Tag</div>
             </div>
         </div>
 
-        <!-- SECCIÓN 6 -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-number">06</span>
-                <span class="section-title">Herramientas finales</span>
-                <div class="section-line"></div>
-            </div>
 
-            <div class="step" id="s12">
-                <div class="step-top">
-                    <div class="step-check" onclick="toggle('s12')">
-                        <svg viewBox="0 0 12 12" fill="none">
-                            <polyline points="1.5,6 4.5,9 10.5,3" stroke="#0a0a0f" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div class="step-info">
-                        <div class="step-name">GitHub CLI + SSH Key</div>
-                        <span class="step-tag tag-dev">Dev</span>
-                        <span class="step-tag tag-terminal">⌨ Terminal</span>
-                        <div class="step-desc">El Mac nuevo no tiene ninguna clave SSH configurada — este paso es
-                            obligatorio para poder hacer push a GitHub sin escribir usuario y contraseña cada vez.
-                            El GitHub CLI facilita autenticarse y crear repos desde terminal.</div>
-                        <span class="cmd-label">GitHub CLI (Autenticación Interactiva)</span>
-                        <div class="cmd-list">
-                            <div class="cmd-item">
-                                <span class="cmd-text">brew install gh</span>
-                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
-                            </div>
-                            <div class="cmd-item interactive-note">
-                                <span class="cmd-text">gh auth login</span>
-                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
-                            </div>
-                        </div>
-
-                        <span class="cmd-label" style="margin-top:16px;">Configuración SSH (Manual)</span>
-                        <div class="cmd-list">
-                            <div class="cmd-item">
-                                <span class="cmd-text" data-template='ssh-keygen -t ed25519 -C "{{EMAIL}}"'>ssh-keygen -t ed25519 -C "tu@correo.com"</span>
-                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
-                            </div>
-                            <div class="cmd-item">
-                                <span class="cmd-text">cat ~/.ssh/id_ed25519.pub</span>
-                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="done-banner" id="doneBanner">
             <h2>✓ Setup completo</h2>
@@ -1175,7 +1126,7 @@ Auto Rename Tag</div>
     </div>
 
     <script>
-        const TOTAL = 12;
+        const TOTAL = 11;
 
         function toggle(id) {
             const el = document.getElementById(id);

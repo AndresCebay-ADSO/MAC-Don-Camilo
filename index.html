@@ -665,17 +665,21 @@
 
         <!-- CONFIG PANEL -->
         <section class="config-card">
-            <h3>Variables de Configuración</h3>
+            <h3>Configuración Personalizada (Andrés)</h3>
+            <p style="grid-column: 1 / -1; font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 8px;">
+                <em>Nota para el instalador:</em> Estos datos pre-configuran automáticamente todos los comandos de abajo. 
+                Si necesita cambiarlos, hágalo antes de empezar a copiar.
+            </p>
             <div class="config-group">
-                <label>Nombre Git</label>
-                <input type="text" id="cfgName" value="Andres Cebay" placeholder="Andres Cebay">
+                <label>Nombre Completo</label>
+                <input type="text" id="cfgName" value="Andrés Cebay" placeholder="Andrés Cebay">
             </div>
             <div class="config-group">
-                <label>Email Git</label>
-                <input type="text" id="cfgEmail" value="tu@correo.com" placeholder="tu@correo.com">
+                <label>Correo Electrónico</label>
+                <input type="text" id="cfgEmail" value="cebayy044@gmail.com" placeholder="cebayy044@gmail.com">
             </div>
             <div class="config-group">
-                <label>Path Proyectos</label>
+                <label>Carpeta de Proyectos</label>
                 <input type="text" id="cfgPath" value="~/Herd" placeholder="~/Herd">
             </div>
         </section>
@@ -1156,8 +1160,8 @@ Auto Rename Tag</div>
 
         function updateDynamicCommands() {
             const vars = {
-                NAME: document.getElementById('cfgName').value || 'Andres Cebay',
-                EMAIL: document.getElementById('cfgEmail').value || 'tu@correo.com',
+                NAME: document.getElementById('cfgName').value || 'Andrés Cebay',
+                EMAIL: document.getElementById('cfgEmail').value || 'cebayy044@gmail.com',
                 PATH: document.getElementById('cfgPath').value || '~/Herd'
             };
 

@@ -528,6 +528,109 @@
             align-items: center;
         }
 
+        /* Config Card */
+        .config-card {
+            background: rgba(126, 232, 162, 0.03);
+            border: 1px solid rgba(126, 232, 162, 0.1);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 48px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .config-card h3 {
+            grid-column: 1 / -1;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .config-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .config-group label {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        .config-group input {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 10px 12px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: #fff;
+            transition: all 0.2s;
+        }
+
+        .config-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(126, 232, 162, 0.05);
+        }
+
+        /* Command List for line-by-line */
+        .cmd-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            margin-top: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .cmd-item {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 10px 16px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--accent2);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .cmd-item:last-child {
+            border-bottom: none;
+        }
+
+        .cmd-text {
+            white-space: pre-wrap;
+            word-break: break-all;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .cmd-item .copy-btn {
+            position: static;
+            opacity: 0.3;
+            flex-shrink: 0;
+            margin-left: 12px;
+        }
+
+        .cmd-item:hover .copy-btn {
+            opacity: 1;
+        }
+
+        .interactive-note {
+            background: rgba(91, 200, 245, 0.05);
+            border: 1px solid rgba(91, 200, 245, 0.15);
+            color: var(--accent2);
+        }
+
         @media (max-width: 600px) {
             h1 {
                 font-size: 32px;
@@ -559,6 +662,23 @@
                 <div class="spec"><span class="spec-dot"></span>macOS</div>
             </div>
         </header>
+
+        <!-- CONFIG PANEL -->
+        <section class="config-card">
+            <h3>Variables de Configuración</h3>
+            <div class="config-group">
+                <label>Nombre Git</label>
+                <input type="text" id="cfgName" value="Andres Cebay" placeholder="Andres Cebay">
+            </div>
+            <div class="config-group">
+                <label>Email Git</label>
+                <input type="text" id="cfgEmail" value="tu@correo.com" placeholder="tu@correo.com">
+            </div>
+            <div class="config-group">
+                <label>Path Proyectos</label>
+                <input type="text" id="cfgPath" value="~/Herd" placeholder="~/Herd">
+            </div>
+        </section>
     </div>
 
     <div class="progress-wrap">
@@ -639,13 +759,24 @@
                             versión de Homebrew es más nueva y actualizable. Configura tu nombre y correo de GitHub.
                         </div>
                         <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>brew install git
-
-git config --global user.name "Tu Nombre"
-git config --global user.email "tu@correo.com"
-
-# Verificar:
-git --version</div>
+                        <div class="cmd-list">
+                            <div class="cmd-item">
+                                <span class="cmd-text">brew install git</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text" data-template='git config --global user.name "{{NAME}}"'>git config --global user.name "Andres Cebay"</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text" data-template='git config --global user.email "{{EMAIL}}"'>git config --global user.email "tu@correo.com"</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text">git --version</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -739,25 +870,61 @@ Auto Rename Tag</div>
                         <div class="step-desc">Composer no lo tienes instalado actualmente — es el npm de PHP y es
                             necesario para instalar Laravel y sus dependencias. También instalamos el Laravel
                             Installer global para crear proyectos con un solo comando.</div>
-                        <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button># PHP 8.3 (compatible con Laravel 11):
-brew install php@8.3
-echo 'export PATH="/opt/homebrew/opt/php@8.3/bin:$PATH"' >> ~/.zshrc
-echo 'export PATH="/opt/homebrew/opt/php@8.3/sbin:$PATH"' >> ~/.zshrc
-source ~/.zshrc
+                        <span class="cmd-label">Instalación y PATH</span>
+                        <div class="cmd-list">
+                            <div class="cmd-item">
+                                <span class="cmd-text">brew install php@8.3</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text">echo 'export PATH="/opt/homebrew/opt/php@8.3/bin:$PATH"' >> ~/.zshrc</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text">echo 'export PATH="/opt/homebrew/opt/php@8.3/sbin:$PATH"' >> ~/.zshrc</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text">source ~/.zshrc</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                        </div>
 
-# Composer (gestor de dependencias de PHP):
-brew install composer
+                        <span class="cmd-label" style="margin-top:16px;">Composer y Laravel Installer</span>
+                        <div class="cmd-list">
+                            <div class="cmd-item">
+                                <span class="cmd-text">brew install composer</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text">composer global require laravel/installer</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text">echo 'export PATH="$HOME/.composer/vendor/bin:$PATH"' >> ~/.zshrc</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text">source ~/.zshrc</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                        </div>
 
-# Laravel Installer global:
-composer global require laravel/installer
-echo 'export PATH="$HOME/.composer/vendor/bin:$PATH"' >> ~/.zshrc
-source ~/.zshrc
-
-# Verificar todo:
-php -v
-composer --version
-laravel --version</div>
+                        <span class="cmd-label" style="margin-top:16px;">Verificar</span>
+                        <div class="cmd-list">
+                            <div class="cmd-item">
+                                <span class="cmd-text">php -v</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text">composer --version</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text">laravel --version</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -802,12 +969,25 @@ laravel --version</div>
                         <div class="step-desc">MySQL como motor de base de datos. TablePlus como cliente gráfico
                             (reemplaza phpMyAdmin de tu XAMPP — mucho mejor en Mac). Nativo Apple Silicon, súper
                             rápido.</div>
-                        <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>brew install mysql
-brew services start mysql
+                        <span class="cmd-label">Instalar MySQL</span>
+                        <div class="cmd-list">
+                            <div class="cmd-item interactive-note">
+                                <span class="cmd-text">brew install mysql</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text">brew services start mysql</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                        </div>
 
-# Primera configuración de seguridad:
-mysql_secure_installation</div>
+                        <span class="cmd-label" style="margin-top:16px;">Configuración Inicial (Manual e Interactiva)</span>
+                        <div class="cmd-list">
+                            <div class="cmd-item">
+                                <span class="cmd-text">mysql_secure_installation</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                        </div>
                         <a href="https://tableplus.com" target="_blank" class="download-btn">↗ Descargar TablePlus
                             (gratis)</a>
                         <div class="note">Si en el futuro usas Herd Pro (de pago), ya incluye MySQL integrado. En
@@ -840,24 +1020,41 @@ mysql_secure_installation</div>
                         <div class="step-desc">Ya tienes Node 22.15 en Windows. En Mac instala via nvm para poder
                             cambiar versiones fácilmente. Necesario para compilar Tailwind CSS y Alpine.js con
                             Vite en Laravel.</div>
-                        <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button># Instalar nvm vía Homebrew:
-brew install nvm
-mkdir -p ~/.nvm
+                        <span class="cmd-label">NVM Setup</span>
+                        <div class="cmd-list">
+                            <div class="cmd-item">
+                                <span class="cmd-text">brew install nvm</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text">mkdir -p ~/.nvm</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text">echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text">[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text">source ~/.zshrc</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                        </div>
 
-# Agregar al .zshrc:
-echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
-echo '[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"' >> ~/.zshrc
-echo '[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"' >> ~/.zshrc
-source ~/.zshrc
-
-# Instalar Node LTS (versión estable recomendada):
-nvm install --lts
-nvm use --lts
-
-# Verificar:
-node -v
-npm -v</div>
+                        <span class="cmd-label" style="margin-top:16px;">Instalar Node LTS</span>
+                        <div class="cmd-list">
+                            <div class="cmd-item">
+                                <span class="cmd-text">nvm install --lts</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text">nvm use --lts</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -937,19 +1134,29 @@ npm -v</div>
                         <div class="step-desc">El Mac nuevo no tiene ninguna clave SSH configurada — este paso es
                             obligatorio para poder hacer push a GitHub sin escribir usuario y contraseña cada vez.
                             El GitHub CLI facilita autenticarse y crear repos desde terminal.</div>
-                        <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button># Instalar GitHub CLI:
-brew install gh
-gh auth login
+                        <span class="cmd-label">GitHub CLI (Autenticación Interactiva)</span>
+                        <div class="cmd-list">
+                            <div class="cmd-item">
+                                <span class="cmd-text">brew install gh</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item interactive-note">
+                                <span class="cmd-text">gh auth login</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                        </div>
 
-# Generar SSH key para GitHub:
-ssh-keygen -t ed25519 -C "tu@correo.com"
-
-# Ver tu clave pública y copiarla:
-cat ~/.ssh/id_ed25519.pub
-
-# Agrégala en:
-# github.com → Settings → SSH and GPG Keys → New SSH Key</div>
+                        <span class="cmd-label" style="margin-top:16px;">Configuración SSH (Manual)</span>
+                        <div class="cmd-list">
+                            <div class="cmd-item">
+                                <span class="cmd-text" data-template='ssh-keygen -t ed25519 -C "{{EMAIL}}"'>ssh-keygen -t ed25519 -C "tu@correo.com"</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="cmd-text">cat ~/.ssh/id_ed25519.pub</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -989,23 +1196,59 @@ cat ~/.ssh/id_ed25519.pub
 
         document.getElementById('footerDate').textContent = new Date().toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
 
+        // --- INTERACTIVE ENGINE ---
+        
+        const inputs = ['cfgName', 'cfgEmail', 'cfgPath'];
+        inputs.forEach(id => {
+            document.getElementById(id).addEventListener('input', updateDynamicCommands);
+        });
+
+        function updateDynamicCommands() {
+            const vars = {
+                NAME: document.getElementById('cfgName').value || 'Andres Cebay',
+                EMAIL: document.getElementById('cfgEmail').value || 'tu@correo.com',
+                PATH: document.getElementById('cfgPath').value || '~/Herd'
+            };
+
+            document.querySelectorAll('[data-template]').forEach(el => {
+                let template = el.getAttribute('data-template');
+                Object.keys(vars).forEach(key => {
+                    template = template.replace(new RegExp(`{{${key}}}`, 'g'), vars[key]);
+                });
+                el.textContent = template;
+            });
+        }
+
         function copyThis(btn) {
             const block = btn.parentElement;
-            // Get all text except button text
             let textToCopy = '';
-            for (let node of block.childNodes) {
-                if (node.nodeType === 3) textToCopy += node.textContent;
-                else if (node !== btn) textToCopy += node.innerText;
-            }
-            textToCopy = textToCopy.trim();
             
-            navigator.clipboard.writeText(textToCopy).then(() => {
+            // If it's a specific line (cmd-item)
+            if (block.classList.contains('cmd-item')) {
+                const textEl = block.querySelector('.cmd-text');
+                textToCopy = textEl.textContent.trim();
+            } else {
+                // Legacy behavior for single blocks
+                for (let node of block.childNodes) {
+                    if (node.nodeType === 3) textToCopy += node.textContent;
+                    else if (node !== btn) textToCopy += node.innerText;
+                }
+            }
+            
+            executeCopy(btn, textToCopy.trim());
+        }
+
+        function executeCopy(btn, text) {
+            navigator.clipboard.writeText(text).then(() => {
                 btn.classList.add('copied');
                 setTimeout(() => {
                     btn.classList.remove('copied');
                 }, 2000);
             });
         }
+
+        // Initialize on load
+        updateDynamicCommands();
     </script>
 </body>
 

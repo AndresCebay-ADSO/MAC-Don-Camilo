@@ -9,6 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap"
         rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
     <style>
         :root {
             --bg: #0a0a0f;
@@ -370,6 +371,35 @@
             position: relative;
         }
 
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: var(--mono);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.2s;
+            opacity: 0;
+            z-index: 10;
+        }
+
+        .cmd-block:hover .copy-btn {
+            opacity: 1;
+        }
+
+        .copy-btn:hover {
+            background: var(--accent);
+            color: var(--bg);
+            border-color: var(--accent);
+        }
+
         .cmd-label {
             font-family: var(--mono);
             font-size: 10px;
@@ -529,7 +559,7 @@
                         <div class="step-desc">El gestor de paquetes de macOS. Sin esto no puedes instalar casi nada
                             fácil desde terminal. Es literalmente el primer paso en cualquier Mac para desarrollo.</div>
                         <span class="cmd-label">Terminal (Cmd + Espacio → "Terminal")</span>
-                        <div class="cmd-block">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</div>
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)">Copiar</button>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</div>
                         <div class="note">Después de instalar, el terminal te pedirá que corras 2 comandos más para
                             agregar Homebrew al PATH. Cópialos y ejecútalos — son específicos para tu usuario.</div>
                     </div>
@@ -551,7 +581,7 @@
                         <div class="step-desc">Mejora brutal del terminal. Muestra la branch de Git en la que estás,
                             autocompletado, colores. Una vez lo usas no puedes vivir sin él.</div>
                         <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block">sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</div>
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)">Copiar</button>sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</div>
                     </div>
                 </div>
             </div>
@@ -572,7 +602,7 @@
                             versión de Homebrew es más nueva y actualizable. Configura tu nombre y correo de GitHub.
                         </div>
                         <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block">brew install git
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)">Copiar</button>brew install git
 
 git config --global user.name "Tu Nombre"
 git config --global user.email "tu@correo.com"
@@ -612,7 +642,7 @@ git --version</div>
                             Descargar VS Code — Apple Silicon</a>
                         <div class="step-desc" style="margin-top:16px; margin-bottom:0">Extensiones esenciales para
                             Laravel + Alpine.js:</div>
-                        <div class="cmd-block">PHP Intelephense
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)">Copiar</button>PHP Intelephense
 Laravel Blade Snippets
 Laravel Snippets
 GitLens
@@ -673,7 +703,7 @@ Auto Rename Tag</div>
                             necesario para instalar Laravel y sus dependencias. También instalamos el Laravel
                             Installer global para crear proyectos con un solo comando.</div>
                         <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block"># PHP 8.3 (compatible con Laravel 11):
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)">Copiar</button># PHP 8.3 (compatible con Laravel 11):
 brew install php@8.3
 echo 'export PATH="/opt/homebrew/opt/php@8.3/bin:$PATH"' >> ~/.zshrc
 echo 'export PATH="/opt/homebrew/opt/php@8.3/sbin:$PATH"' >> ~/.zshrc
@@ -736,7 +766,7 @@ laravel --version</div>
                             (reemplaza phpMyAdmin de tu XAMPP — mucho mejor en Mac). Nativo Apple Silicon, súper
                             rápido.</div>
                         <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block">brew install mysql
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)">Copiar</button>brew install mysql
 brew services start mysql
 
 # Primera configuración de seguridad:
@@ -774,7 +804,7 @@ mysql_secure_installation</div>
                             cambiar versiones fácilmente. Necesario para compilar Tailwind CSS y Alpine.js con
                             Vite en Laravel.</div>
                         <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block"># Instalar nvm vía Homebrew:
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)">Copiar</button># Instalar nvm vía Homebrew:
 brew install nvm
 mkdir -p ~/.nvm
 
@@ -871,7 +901,7 @@ npm -v</div>
                             obligatorio para poder hacer push a GitHub sin escribir usuario y contraseña cada vez.
                             El GitHub CLI facilita autenticarse y crear repos desde terminal.</div>
                         <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block"># Instalar GitHub CLI:
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)">Copiar</button># Instalar GitHub CLI:
 brew install gh
 gh auth login
 
@@ -921,6 +951,19 @@ cat ~/.ssh/id_ed25519.pub
         }
 
         document.getElementById('footerDate').textContent = new Date().toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
+
+        function copyThis(btn) {
+            const block = btn.parentElement;
+            const textToCopy = block.innerText.replace('Copiar', '').replace('¡Copiado!', '').trim();
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = '¡Copiado!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            });
+        }
     </script>
 </body>
 

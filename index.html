@@ -529,8 +529,7 @@
                         <div class="step-desc">El gestor de paquetes de macOS. Sin esto no puedes instalar casi nada
                             fácil desde terminal. Es literalmente el primer paso en cualquier Mac para desarrollo.</div>
                         <span class="cmd-label">Terminal (Cmd + Espacio → "Terminal")</span>
-                        <div class="cmd-block">/bin/bash -c "$(curl -fsSL
-                            https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</div>
+                        <div class="cmd-block">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</div>
                         <div class="note">Después de instalar, el terminal te pedirá que corras 2 comandos más para
                             agregar Homebrew al PATH. Cópialos y ejecútalos — son específicos para tu usuario.</div>
                     </div>
@@ -552,8 +551,7 @@
                         <div class="step-desc">Mejora brutal del terminal. Muestra la branch de Git en la que estás,
                             autocompletado, colores. Una vez lo usas no puedes vivir sin él.</div>
                         <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block">sh -c "$(curl -fsSL
-                            https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</div>
+                        <div class="cmd-block">sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</div>
                     </div>
                 </div>
             </div>
@@ -576,11 +574,11 @@
                         <span class="cmd-label">Terminal</span>
                         <div class="cmd-block">brew install git
 
-                            git config --global user.name "Tu Nombre"
-                            git config --global user.email "tu@correo.com"
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu@correo.com"
 
-                            # Verificar:
-                            git --version</div>
+# Verificar:
+git --version</div>
                     </div>
                 </div>
             </div>
@@ -615,14 +613,14 @@
                         <div class="step-desc" style="margin-top:16px; margin-bottom:0">Extensiones esenciales para
                             Laravel + Alpine.js:</div>
                         <div class="cmd-block">PHP Intelephense
-                            Laravel Blade Snippets
-                            Laravel Snippets
-                            GitLens
-                            Tailwind CSS IntelliSense
-                            Alpine.js IntelliSense
-                            DotENV
-                            Error Lens
-                            Auto Rename Tag</div>
+Laravel Blade Snippets
+Laravel Snippets
+GitLens
+Tailwind CSS IntelliSense
+Alpine.js IntelliSense
+DotENV
+Error Lens
+Auto Rename Tag</div>
                     </div>
                 </div>
             </div>
@@ -676,23 +674,23 @@
                             Installer global para crear proyectos con un solo comando.</div>
                         <span class="cmd-label">Terminal</span>
                         <div class="cmd-block"># PHP 8.3 (compatible con Laravel 11):
-                            brew install php@8.3
-                            echo 'export PATH="/opt/homebrew/opt/php@8.3/bin:$PATH"' >> ~/.zshrc
-                            echo 'export PATH="/opt/homebrew/opt/php@8.3/sbin:$PATH"' >> ~/.zshrc
-                            source ~/.zshrc
+brew install php@8.3
+echo 'export PATH="/opt/homebrew/opt/php@8.3/bin:$PATH"' >> ~/.zshrc
+echo 'export PATH="/opt/homebrew/opt/php@8.3/sbin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
 
-                            # Composer (gestor de dependencias de PHP):
-                            brew install composer
+# Composer (gestor de dependencias de PHP):
+brew install composer
 
-                            # Laravel Installer global:
-                            composer global require laravel/installer
-                            echo 'export PATH="$HOME/.composer/vendor/bin:$PATH"' >> ~/.zshrc
-                            source ~/.zshrc
+# Laravel Installer global:
+composer global require laravel/installer
+echo 'export PATH="$HOME/.composer/vendor/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
 
-                            # Verificar todo:
-                            php -v
-                            composer --version
-                            laravel --version</div>
+# Verificar todo:
+php -v
+composer --version
+laravel --version</div>
                     </div>
                 </div>
             </div>
@@ -739,10 +737,10 @@
                             rápido.</div>
                         <span class="cmd-label">Terminal</span>
                         <div class="cmd-block">brew install mysql
-                            brew services start mysql
+brew services start mysql
 
-                            # Primera configuración de seguridad:
-                            mysql_secure_installation</div>
+# Primera configuración de seguridad:
+mysql_secure_installation</div>
                         <a href="https://tableplus.com" target="_blank" class="download-btn">↗ Descargar TablePlus
                             (gratis)</a>
                         <div class="note">Si en el futuro usas Herd Pro (de pago), ya incluye MySQL integrado. En
@@ -777,24 +775,22 @@
                             Vite en Laravel.</div>
                         <span class="cmd-label">Terminal</span>
                         <div class="cmd-block"># Instalar nvm vía Homebrew:
-                            brew install nvm
-                            mkdir -p ~/.nvm
+brew install nvm
+mkdir -p ~/.nvm
 
-                            # Agregar al .zshrc:
-                            echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
-                            echo '[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"' >>
-                            ~/.zshrc
-                            echo '[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \.
-                            "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"' >> ~/.zshrc
-                            source ~/.zshrc
+# Agregar al .zshrc:
+echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
+echo '[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"' >> ~/.zshrc
+echo '[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"' >> ~/.zshrc
+source ~/.zshrc
 
-                            # Instalar Node LTS (versión estable recomendada):
-                            nvm install --lts
-                            nvm use --lts
+# Instalar Node LTS (versión estable recomendada):
+nvm install --lts
+nvm use --lts
 
-                            # Verificar:
-                            node -v
-                            npm -v</div>
+# Verificar:
+node -v
+npm -v</div>
                     </div>
                 </div>
             </div>
@@ -876,17 +872,17 @@
                             El GitHub CLI facilita autenticarse y crear repos desde terminal.</div>
                         <span class="cmd-label">Terminal</span>
                         <div class="cmd-block"># Instalar GitHub CLI:
-                            brew install gh
-                            gh auth login
+brew install gh
+gh auth login
 
-                            # Generar SSH key para GitHub:
-                            ssh-keygen -t ed25519 -C "tu@correo.com"
+# Generar SSH key para GitHub:
+ssh-keygen -t ed25519 -C "tu@correo.com"
 
-                            # Ver tu clave pública y copiarla:
-                            cat ~/.ssh/id_ed25519.pub
+# Ver tu clave pública y copiarla:
+cat ~/.ssh/id_ed25519.pub
 
-                            # Agrégala en:
-                            # github.com → Settings → SSH and GPG Keys → New SSH Key</div>
+# Agrégala en:
+# github.com → Settings → SSH and GPG Keys → New SSH Key</div>
                     </div>
                 </div>
             </div>

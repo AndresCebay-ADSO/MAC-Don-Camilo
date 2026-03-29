@@ -373,19 +373,19 @@
 
         .copy-btn {
             position: absolute;
-            top: 8px;
-            right: 8px;
+            top: 10px;
+            right: 10px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border);
             color: var(--muted);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-family: var(--mono);
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             opacity: 0;
             z-index: 10;
         }
@@ -398,6 +398,43 @@
             background: var(--accent);
             color: var(--bg);
             border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Tooltip */
+        .copy-btn::after {
+            content: 'Copiar';
+            position: absolute;
+            bottom: calc(100% + 8px);
+            right: 0;
+            background: #fff;
+            color: var(--bg);
+            font-family: var(--mono);
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.2s;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .copy-btn:hover::after {
+            opacity: 1;
+            transform: translateY(-4px);
+        }
+
+        .copy-btn.copied::after {
+            content: '¡Copiado!';
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        .copy-btn svg {
+            width: 16px;
+            height: 16px;
         }
 
         .cmd-label {
@@ -559,7 +596,7 @@
                         <div class="step-desc">El gestor de paquetes de macOS. Sin esto no puedes instalar casi nada
                             fácil desde terminal. Es literalmente el primer paso en cualquier Mac para desarrollo.</div>
                         <span class="cmd-label">Terminal (Cmd + Espacio → "Terminal")</span>
-                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)">Copiar</button>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</div>
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</div>
                         <div class="note">Después de instalar, el terminal te pedirá que corras 2 comandos más para
                             agregar Homebrew al PATH. Cópialos y ejecútalos — son específicos para tu usuario.</div>
                     </div>
@@ -581,7 +618,7 @@
                         <div class="step-desc">Mejora brutal del terminal. Muestra la branch de Git en la que estás,
                             autocompletado, colores. Una vez lo usas no puedes vivir sin él.</div>
                         <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)">Copiar</button>sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</div>
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</div>
                     </div>
                 </div>
             </div>
@@ -602,7 +639,7 @@
                             versión de Homebrew es más nueva y actualizable. Configura tu nombre y correo de GitHub.
                         </div>
                         <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)">Copiar</button>brew install git
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>brew install git
 
 git config --global user.name "Tu Nombre"
 git config --global user.email "tu@correo.com"
@@ -642,7 +679,7 @@ git --version</div>
                             Descargar VS Code — Apple Silicon</a>
                         <div class="step-desc" style="margin-top:16px; margin-bottom:0">Extensiones esenciales para
                             Laravel + Alpine.js:</div>
-                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)">Copiar</button>PHP Intelephense
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>PHP Intelephense
 Laravel Blade Snippets
 Laravel Snippets
 GitLens
@@ -703,7 +740,7 @@ Auto Rename Tag</div>
                             necesario para instalar Laravel y sus dependencias. También instalamos el Laravel
                             Installer global para crear proyectos con un solo comando.</div>
                         <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)">Copiar</button># PHP 8.3 (compatible con Laravel 11):
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button># PHP 8.3 (compatible con Laravel 11):
 brew install php@8.3
 echo 'export PATH="/opt/homebrew/opt/php@8.3/bin:$PATH"' >> ~/.zshrc
 echo 'export PATH="/opt/homebrew/opt/php@8.3/sbin:$PATH"' >> ~/.zshrc
@@ -766,7 +803,7 @@ laravel --version</div>
                             (reemplaza phpMyAdmin de tu XAMPP — mucho mejor en Mac). Nativo Apple Silicon, súper
                             rápido.</div>
                         <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)">Copiar</button>brew install mysql
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>brew install mysql
 brew services start mysql
 
 # Primera configuración de seguridad:
@@ -804,7 +841,7 @@ mysql_secure_installation</div>
                             cambiar versiones fácilmente. Necesario para compilar Tailwind CSS y Alpine.js con
                             Vite en Laravel.</div>
                         <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)">Copiar</button># Instalar nvm vía Homebrew:
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button># Instalar nvm vía Homebrew:
 brew install nvm
 mkdir -p ~/.nvm
 
@@ -901,7 +938,7 @@ npm -v</div>
                             obligatorio para poder hacer push a GitHub sin escribir usuario y contraseña cada vez.
                             El GitHub CLI facilita autenticarse y crear repos desde terminal.</div>
                         <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)">Copiar</button># Instalar GitHub CLI:
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button># Instalar GitHub CLI:
 brew install gh
 gh auth login
 
@@ -954,13 +991,18 @@ cat ~/.ssh/id_ed25519.pub
 
         function copyThis(btn) {
             const block = btn.parentElement;
-            const textToCopy = block.innerText.replace('Copiar', '').replace('¡Copiado!', '').trim();
+            // Get all text except button text
+            let textToCopy = '';
+            for (let node of block.childNodes) {
+                if (node.nodeType === 3) textToCopy += node.textContent;
+                else if (node !== btn) textToCopy += node.innerText;
+            }
+            textToCopy = textToCopy.trim();
             
             navigator.clipboard.writeText(textToCopy).then(() => {
-                const originalText = btn.textContent;
-                btn.textContent = '¡Copiado!';
+                btn.classList.add('copied');
                 setTimeout(() => {
-                    btn.textContent = originalText;
+                    btn.classList.remove('copied');
                 }, 2000);
             });
         }

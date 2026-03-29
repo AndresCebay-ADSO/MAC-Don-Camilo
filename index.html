@@ -351,9 +351,43 @@
         }
 
         .tag-download {
-            background: rgba(180, 140, 255, 0.08);
-            color: #b48cff;
-            border: 1px solid rgba(180, 140, 255, 0.25);
+            background: rgba(180, 140, 100, 0.08);
+            color: #f7c59f;
+            border: 1px solid rgba(247, 197, 159, 0.3);
+        }
+
+        .guide-box {
+            background: rgba(91, 200, 245, 0.05);
+            border: 1px solid rgba(91, 200, 245, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 48px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .guide-item {
+            display: flex;
+            gap: 16px;
+        }
+
+        .guide-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .guide-text h4 {
+            font-size: 14px;
+            margin-bottom: 4px;
+            color: var(--accent2);
+        }
+
+        .guide-text p {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--muted);
+            line-height: 1.5;
         }
 
         .cmd-block {
@@ -697,6 +731,46 @@
 
     <div class="container">
 
+        <!-- SECCIÓN 0: MINI TUTORIAL -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">00</span>
+                <span class="section-title">Instrucciones para el Setup</span>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="guide-box">
+                <div class="guide-item">
+                    <div class="guide-icon">🖱️</div>
+                    <div class="guide-text">
+                        <h4>Cómo copiar</h4>
+                        <p>Haga clic en el icono 📋 al lado de cada comando. El texto se guardará automáticamente en su memoria.</p>
+                    </div>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-icon">⌨️</div>
+                    <div class="guide-text">
+                        <h4>Cómo pegar</h4>
+                        <p>En el Terminal, use <b>Cmd + V</b> para pegar y luego presione <b>Enter</b> para ejecutar cada paso.</p>
+                    </div>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-icon">📂</div>
+                    <div class="guide-text">
+                        <h4>Instalar Apps</h4>
+                        <p>Cuando descargue una aplicación, recuerde arrastrar el icono a la carpeta de <b>Aplicaciones</b> de su Mac.</p>
+                    </div>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-icon">🚀</div>
+                    <div class="guide-text">
+                        <h4>Abrir Terminal</h4>
+                        <p>Presione <b>Cmd + Espacio</b>, escriba "Terminal" y presione Enter para abrir la consola de comandos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- SECCIÓN 1 -->
         <div class="section">
             <div class="section-header">
@@ -717,8 +791,7 @@
                         <div class="step-name">Homebrew</div>
                         <span class="step-tag tag-required">Obligatorio primero</span>
                         <span class="step-tag tag-terminal">⌨ Terminal</span>
-                        <div class="step-desc">El gestor de paquetes de macOS. Sin esto no puedes instalar casi nada
-                            fácil desde terminal. Es literalmente el primer paso en cualquier Mac para desarrollo.</div>
+                        <div class="step-desc">Herramienta base para que el Mac pueda instalar programas profesionales. Es el primer paso obligatorio.</div>
                         <span class="cmd-label">Terminal (Cmd + Espacio → "Terminal")</span>
                         <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</div>
                         <div class="note">Después de instalar, el terminal te pedirá que corras 2 comandos más para
@@ -806,23 +879,11 @@
                         <div class="step-name">Visual Studio Code</div>
                         <span class="step-tag tag-dev">Dev</span>
                         <span class="step-tag tag-download">↓ Descarga directa</span>
-                        <div class="step-desc">Ya lo usas en Windows (v1.113). En Mac descarga la versión Apple
-                            Silicon — no la Intel — para que corra nativo en tu M1 Max. Instala el comando
-                            <code style="color:var(--accent2)">code</code> desde Cmd+Shift+P → "Shell Command: Install".
-                        </div>
-                        <a href="https://code.visualstudio.com/download" target="_blank" class="download-btn">↗
-                            Descargar VS Code — Apple Silicon</a>
-                        <div class="step-desc" style="margin-top:16px; margin-bottom:0">Extensiones esenciales para
-                            Laravel + Alpine.js:</div>
-                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>PHP Intelephense
-Laravel Blade Snippets
-Laravel Snippets
-GitLens
-Tailwind CSS IntelliSense
-Alpine.js IntelliSense
-DotENV
-Error Lens
-Auto Rename Tag</div>
+                        <div class="step-desc">El programa base para manejar archivos. Descargue la versión estable para Mac con Apple Silicon. Al terminar, arrastre el icono a Aplicaciones.</div>
+                        <a href="https://code.visualstudio.com/sha/download?build=stable&os=darwin-arm64" target="_blank" class="download-btn">↗ Descargar VS Code (Apple Silicon)</a>
+                        <div class="step-desc" style="margin-top:16px; margin-bottom:0">Después de instalar, abra VS Code e instale estas mejoras:</div>
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>PHP Intelephense, Laravel Blade, Tailwind CSS, GitLens</div>
+
                     </div>
                 </div>
             </div>
@@ -945,14 +1006,9 @@ Auto Rename Tag</div>
                         <div class="step-name">Laravel Herd (reemplaza XAMPP)</div>
                         <span class="step-tag tag-required">Obligatorio</span>
                         <span class="step-tag tag-download">↓ Descarga directa</span>
-                        <div class="step-desc">En Mac no se usa XAMPP. Herd es la herramienta oficial de Laravel para
-                            Mac: gestiona Nginx y dominios locales (.test) de forma nativa en Apple Silicon. Mucho
-                            más rápido que XAMPP. Arrastra tu proyecto a ~/Herd y accede como
-                            <em style="color:var(--accent)">proyecto.test</em> en el navegador.
-                        </div>
-                        <a href="https://herd.laravel.com" target="_blank" class="download-btn">↗ Descargar Laravel
-                            Herd (gratis)</a>
-                        <div class="note">Herd reemplaza XAMPP completamente. No instales XAMPP en Mac.</div>
+                        <div class="step-desc">Esta es la herramienta principal para que el Mac pueda ver los proyectos de Andrés. Descárguela e instálela. Al terminar, la carpeta de proyectos será <b>~/Herd</b>.</div>
+                        <a href="https://herd.laravel.com" target="_blank" class="download-btn">↗ Descargar Laravel Herd (Gratis)</a>
+                        <div class="note">Nota: Esto reemplaza a XAMPP de forma profesional.</div>
                     </div>
                 </div>
             </div>
@@ -970,9 +1026,7 @@ Auto Rename Tag</div>
                         <span class="step-tag tag-required">Obligatorio</span>
                         <span class="step-tag tag-terminal">⌨ Terminal</span>
                         <span class="step-tag tag-download">↓ TablePlus: descarga</span>
-                        <div class="step-desc">MySQL como motor de base de datos. TablePlus como cliente gráfico
-                            (reemplaza phpMyAdmin de tu XAMPP — mucho mejor en Mac). Nativo Apple Silicon, súper
-                            rápido.</div>
+                        <div class="step-desc">Herramientas para manejar las bases de datos. Instale MySQL desde la terminal y descargue TablePlus (el programa con icono azul).</div>
                         <span class="cmd-label">Instalar MySQL</span>
                         <div class="cmd-list">
                             <div class="cmd-item interactive-note">
@@ -1084,11 +1138,9 @@ Auto Rename Tag</div>
                         <div class="step-name">Notion</div>
                         <span class="step-tag tag-optional">Productividad</span>
                         <span class="step-tag tag-download">↓ Descarga directa</span>
-                        <div class="step-desc">Ya tienes Notion 7.5.2 en Windows. Descarga la versión nativa para
-                            Mac con soporte Apple Silicon — más rápida que el navegador. Inicia sesión con tu
-                            cuenta y todo sincroniza automáticamente.</div>
-                        <a href="https://www.notion.so/desktop" target="_blank" class="download-btn">↗ Descargar
-                            Notion para Mac</a>
+                        <div class="step-desc">Descarga Notion para Mac (Apple Silicon). Es la herramienta de organización y notas de Andrés. Inicie sesión al terminar.</div>
+                        <a href="https://www.notion.so/desktop" target="_blank" class="download-btn">↗ Descargar Notion para Mac</a>
+
                     </div>
                 </div>
             </div>
@@ -1105,11 +1157,9 @@ Auto Rename Tag</div>
                         <div class="step-name">GitHub Desktop</div>
                         <span class="step-tag tag-dev">Dev</span>
                         <span class="step-tag tag-download">↓ Descarga directa</span>
-                        <div class="step-desc">Ya lo usas en Windows (v3.5.2). Descarga la versión Mac e inicia
-                            sesión con tu cuenta de GitHub — todos tus repositorios aparecen automáticamente. Corre
-                            nativo en Apple Silicon.</div>
-                        <a href="https://desktop.github.com" target="_blank" class="download-btn">↗ Descargar GitHub
-                            Desktop para Mac</a>
+                        <div class="step-desc">Instale esta aplicación para manejar el código de Andrés. Inicie sesión con la cuenta de GitHub al finalizar.</div>
+                        <a href="https://desktop.github.com" target="_blank" class="download-btn">↗ Descargar GitHub Desktop</a>
+
                     </div>
                 </div>
             </div>

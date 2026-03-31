@@ -1218,12 +1218,48 @@
                         </svg>
                     </div>
                     <div class="step-info">
-                        <div class="step-name">Modelos IA Locales (Llama 3.2)</div>
+                        <div class="step-name">Modelos IA Locales (Llama, Qwen, DeepSeek)</div>
                         <span class="step-tag tag-ai">IA</span>
                         <span class="step-tag tag-terminal">⌨ Terminal</span>
-                        <div class="step-desc">Descarga y corre tu primer modelo. Recomendamos Llama 3.2 por su equilibrio entre inteligencia y velocidad.</div>
+                        <div class="step-desc">Descargue estos modelos recomendados para desarrollo. Se descargarán automáticamente la primera vez que los corra.</div>
                         <span class="cmd-label">Terminal</span>
-                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>ollama run llama3.2</div>
+                        <div class="cmd-list">
+                            <div class="cmd-item">
+                                <span class="step-index-label">1️⃣ Llama 3.1 (8B):</span>
+                                <span class="cmd-text">ollama run llama3.1:8b</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="step-index-label">2️⃣ Qwen 2.5 Coder (32B):</span>
+                                <span class="cmd-text">ollama run qwen2.5-coder:32b</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="step-index-label">3️⃣ DeepSeek Coder V2 (16B):</span>
+                                <span class="cmd-text">ollama run deepseek-coder-v2:16b</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                        </div>
+                        <div class="note"><b>¿Cómo correrlas después?</b> Simplemente use el comando <code>ollama run [nombre-modelo]</code> en el terminal en cualquier momento.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step" id="s14">
+                <div class="step-top">
+                    <div class="step-check" onclick="toggle('s14')">
+                        <svg viewBox="0 0 12 12" fill="none">
+                            <polyline points="1.5,6 4.5,9 10.5,3" stroke="#0a0a0f" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="step-info">
+                        <div class="step-name">Control de Agentes (Claude + Kimi)</div>
+                        <span class="step-tag tag-ai">IA</span>
+                        <span class="step-tag tag-terminal">⌨ Terminal</span>
+                        <div class="step-desc">Este comando especial permite conectar modelos en la nube como Kimi a través de la interfaz de Claude.</div>
+                        <span class="cmd-label">Terminal</span>
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>ollama launch claude --model kimi-k2.5:cloud</div>
                     </div>
                 </div>
             </div>
@@ -1245,7 +1281,7 @@
     </div>
 
     <script>
-        const TOTAL = 12;
+        const TOTAL = 13;
 
         function toggle(id) {
             const el = document.getElementById(id);

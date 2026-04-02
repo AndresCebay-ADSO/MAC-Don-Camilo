@@ -1101,6 +1101,25 @@ DB_PASSWORD=</div>
                     </div>
                 </div>
             </div>
+
+            <div class="step" id="s18">
+                <div class="step-top">
+                    <div class="step-check" onclick="toggle('s18')">
+                        <svg viewBox="0 0 12 12" fill="none">
+                            <polyline points="1.5,6 4.5,9 10.5,3" stroke="#0a0a0f" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="step-info">
+                        <div class="step-name">Manejo de DB (DBeaver community)</div>
+                        <span class="step-tag tag-dev">Dev</span>
+                        <span class="step-tag tag-download">↓ Descarga directa</span>
+                        <div class="step-desc">El "Swiss Army Knife" para bases de datos profesional. Permite visualizar y editar PostgreSQL de forma visual.</div>
+                        <a href="https://dbeaver.io/download/" target="_blank" class="download-btn">↗ Descargar DBeaver para Mac</a>
+                        <div class="note"><b>Cómo conectar a Postgres:</b> Seleccione "PostgreSQL" -> Host: <code>127.0.0.1</code> -> Puerto: <code>5432</code> -> Usuario: <code>postgres</code>.</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- SECCIÓN 4 -->
@@ -1358,6 +1377,38 @@ DB_PASSWORD=</div>
             </div>
         </div>
 
+        <!-- SECCIÓN 08: FLUJO DE TRABAJO CON IA -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">08</span>
+                <span class="section-title">Flujo de Trabajo con IA</span>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="step" id="s19">
+                <div class="step-top">
+                    <div class="step-check" onclick="toggle('s19')">
+                        <svg viewBox="0 0 12 12" fill="none">
+                            <polyline points="1.5,6 4.5,9 10.5,3" stroke="#0a0a0f" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="step-info">
+                        <div class="step-name">Contexto de Proyecto (claude.md)</div>
+                        <span class="step-tag tag-ai">IA</span>
+                        <span class="step-tag tag-required">Recomendado</span>
+                        <div class="step-desc">Un archivo <b>claude.md</b> en la raíz de su proyecto permite que la IA (Claude, Antigravity) entienda todo el proyecto al instante sin que usted tenga que explicárselo.</div>
+                        <div class="cmd-label">Ejemplo de claude.md</div>
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button># Proyecto Don Camilo
+Stack: Laravel 11, React (Vite), PostgreSQL.
+Reglas: Usar Tailwind v4, mantener controladores limpios.</div>
+                        <div class="note">Simplemente cree el archivo en su proyecto y la IA lo leerá automáticamente.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
 
 
 
@@ -1374,7 +1425,7 @@ DB_PASSWORD=</div>
     </div>
 
     <script>
-        const TOTAL = 16;
+        const TOTAL = 18;
 
         function toggle(id) {
             const el = document.getElementById(id);

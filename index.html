@@ -1497,6 +1497,46 @@ Reglas: Usar Tailwind v4, mantener controladores limpios.</div>
                 </div>
             </div>
         </div>
+
+        <!-- SECCIÓN 10: PRODUCCIÓN -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">10</span>
+                <span class="section-title">Producción & Despliegue (Hostinger)</span>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="step" id="s23">
+                <div class="step-top">
+                    <div class="step-check" onclick="toggle('s23')">
+                        <svg viewBox="0 0 12 12" fill="none">
+                            <polyline points="1.5,6 4.5,9 10.5,3" stroke="#0a0a0f" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="step-info">
+                        <div class="step-name">Preparación de Laravel para Hostinger</div>
+                        <span class="step-tag tag-required">Producción</span>
+                        <span class="step-tag tag-terminal">⌨ Terminal</span>
+                        <div class="step-desc">Pasos críticos para que tu sitio funcione en el servidor real sin errores (500). Ejecuta estos comandos en la consola de Hostinger:</div>
+                        <span class="cmd-label">Terminal de Hostinger</span>
+                        <div class="cmd-list">
+                            <div class="cmd-item">
+                                <span class="step-index-label">1️⃣ Permisos:</span>
+                                <span class="cmd-text">chmod -R 775 storage bootstrap/cache</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="step-index-label">2️⃣ Optimizar:</span>
+                                <span class="cmd-text">php artisan config:cache && php artisan route:cache && php artisan view:cache</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                        </div>
+                        <div class="note"><b>Recordatorio:</b> No olvides configurar las variables del archivo <code>.env</code> directamente en el Panel de Control de Hostinger.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
 
 
@@ -1515,7 +1555,7 @@ Reglas: Usar Tailwind v4, mantener controladores limpios.</div>
     </div>
 
     <script>
-        const TOTAL = 21;
+        const TOTAL = 22;
 
         function toggle(id) {
             const el = document.getElementById(id);

@@ -978,6 +978,28 @@
                     </div>
                 </div>
             </div>
+
+            <div class="step" id="s21">
+                <div class="step-top">
+                    <div class="step-check" onclick="toggle('s21')">
+                        <svg viewBox="0 0 12 12" fill="none">
+                            <polyline points="1.5,6 4.5,9 10.5,3" stroke="#0a0a0f" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="step-info">
+                        <div class="step-name">Vitaminas para el Navegador (Chrome Dev)</div>
+                        <span class="step-tag tag-dev">Dev</span>
+                        <span class="step-tag tag-download">↓ Extensiones</span>
+                        <div class="step-desc">Herramientas esenciales para inspeccionar componentes de React, estilos de Tailwind y respuestas JSON.</div>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <a href="https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbhfkeoomemkjnhi" target="_blank" class="download-btn">↗ React DevTools</a>
+                            <a href="https://chromewebstore.google.com/detail/tailwind-css-devtools/pghmclnooocifaocffobmikpfghdgnbp" target="_blank" class="download-btn">↗ Tailwind DevTools</a>
+                            <a href="https://chromewebstore.google.com/detail/json-viewer/gbmdgocmnonlghakmfcadhgocafbbbdb" target="_blank" class="download-btn">↗ JSON Viewer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- SECCIÓN 3 -->
@@ -1465,7 +1487,7 @@ Reglas: Usar Tailwind v4, mantener controladores limpios.</div>
     </div>
 
     <script>
-        const TOTAL = 19;
+        const TOTAL = 20;
 
         function toggle(id) {
             const el = document.getElementById(id);

@@ -885,6 +885,46 @@
                     </div>
                 </div>
             </div>
+
+            <div class="step" id="s20">
+                <div class="step-top">
+                    <div class="step-check" onclick="toggle('s20')">
+                        <svg viewBox="0 0 12 12" fill="none">
+                            <polyline points="1.5,6 4.5,9 10.5,3" stroke="#0a0a0f" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="step-info">
+                        <div class="step-name">Terminal Pro (Oh My Zsh + Plugins)</div>
+                        <span class="step-tag tag-terminal">⌨ Terminal</span>
+                        <span class="step-tag tag-optional">Productividad</span>
+                        <div class="step-desc">Optimiza tu flujo de trabajo con autocompletado inteligente y colores en la terminal.</div>
+                        <span class="cmd-label">Terminal</span>
+                        <div class="cmd-list">
+                            <div class="cmd-item">
+                                <span class="step-index-label">1️⃣ Oh My Zsh:</span>
+                                <span class="cmd-text">sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="step-index-label">2️⃣ Autosuggestions:</span>
+                                <span class="cmd-text">git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="step-index-label">3️⃣ Syntax Highlighting:</span>
+                                <span class="cmd-text">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="step-index-label">4️⃣ Activar:</span>
+                                <span class="cmd-text">sed -i '' 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc && source ~/.zshrc</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- SECCIÓN 2 -->
@@ -1425,7 +1465,7 @@ Reglas: Usar Tailwind v4, mantener controladores limpios.</div>
     </div>
 
     <script>
-        const TOTAL = 18;
+        const TOTAL = 19;
 
         function toggle(id) {
             const el = document.getElementById(id);

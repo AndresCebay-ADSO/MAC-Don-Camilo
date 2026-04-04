@@ -1308,10 +1308,63 @@ DB_PASSWORD=</div>
             </div>
         </div>
 
-        <!-- SECCIÓN 06: PRODUCTIVIDAD -->
+        <!-- SECCIÓN 06: LARAVEL TINKER (TUTORIAL) -->
         <div class="section">
             <div class="section-header">
                 <span class="section-number">06</span>
+                <span class="section-title">Laravel Tinker (Tutorial)</span>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="step" id="s24">
+                <div class="step-top">
+                    <div class="step-check" onclick="toggle('s24')">
+                        <svg viewBox="0 0 12 12" fill="none">
+                            <polyline points="1.5,6 4.5,9 10.5,3" stroke="#0a0a0f" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="step-info">
+                        <div class="step-name">Laboratorio de Código (Artisan Tinker)</div>
+                        <span class="step-tag tag-dev">Backend</span>
+                        <span class="step-tag tag-terminal">⌨ Terminal</span>
+                        <div class="step-desc">Tinker es una consola interactiva que te permite "hablar" con tu base de datos y probar código Laravel al instante sin usar el navegador.</div>
+                        
+                        <span class="cmd-label">1. Entrar al laboratorio</span>
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>php artisan tinker</div>
+
+                        <span class="cmd-label" style="margin-top:16px;">2. Comandos de Práctica (Copia y pega dentro)</span>
+                        <div class="cmd-list">
+                            <div class="cmd-item">
+                                <span class="step-index-label">Listar Usuarios:</span>
+                                <span class="cmd-text">App\Models\User::all();</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="step-index-label">Contar Registros:</span>
+                                <span class="cmd-text">App\Models\User::count();</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                            <div class="cmd-item">
+                                <span class="step-index-label">Crear Password:</span>
+                                <span class="cmd-text">bcrypt('secreto123');</span>
+                                <button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                            </div>
+                        </div>
+
+                        <span class="cmd-label" style="margin-top:16px;">3. Crear un usuario rápido</span>
+                        <div class="cmd-block"><button class="copy-btn" onclick="copyThis(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>$user = new App\Models\User; $user->name = "Test"; $user->email = "test@example.com"; $user->password = bcrypt('123'); $user->save();</div>
+
+                        <div class="note"><b>IMPORTANTE:</b> Para salir de la consola Tinker y volver a la normalidad, escribe <code>exit</code> o presiona <code>Ctrl + C</code> dos veces.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 07: PRODUCTIVIDAD -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">07</span>
                 <span class="section-title">Productividad</span>
                 <div class="section-line"></div>
             </div>
@@ -1358,7 +1411,7 @@ DB_PASSWORD=</div>
         <!-- SECCIÓN 07: IA LOCAL & AGENTES -->
         <div class="section">
             <div class="section-header">
-                <span class="section-number">07</span>
+                <span class="section-number">08</span>
                 <span class="section-title">IA Local & Agentes</span>
                 <div class="section-line"></div>
             </div>
@@ -1442,7 +1495,7 @@ DB_PASSWORD=</div>
         <!-- SECCIÓN 08: FLUJO DE TRABAJO CON IA -->
         <div class="section">
             <div class="section-header">
-                <span class="section-number">08</span>
+                <span class="section-number">09</span>
                 <span class="section-title">Flujo de Trabajo con IA</span>
                 <div class="section-line"></div>
             </div>
@@ -1473,7 +1526,7 @@ Reglas: Usar Tailwind v4, mantener controladores limpios.</div>
         <!-- SECCIÓN 09: PRODUCTIVIDAD MAC -->
         <div class="section">
             <div class="section-header">
-                <span class="section-number">09</span>
+                <span class="section-number">10</span>
                 <span class="section-title">Productividad Mac</span>
                 <div class="section-line"></div>
             </div>
@@ -1501,7 +1554,7 @@ Reglas: Usar Tailwind v4, mantener controladores limpios.</div>
         <!-- SECCIÓN 10: PRODUCCIÓN -->
         <div class="section">
             <div class="section-header">
-                <span class="section-number">10</span>
+                <span class="section-number">11</span>
                 <span class="section-title">Producción & Despliegue (Hostinger)</span>
                 <div class="section-line"></div>
             </div>
@@ -1555,7 +1608,7 @@ Reglas: Usar Tailwind v4, mantener controladores limpios.</div>
     </div>
 
     <script>
-        const TOTAL = 22;
+        const TOTAL = 23;
 
         function toggle(id) {
             const el = document.getElementById(id);
